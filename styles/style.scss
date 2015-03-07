@@ -1,0 +1,40 @@
+/**
+* all the css is here
+**/
+$videoWidth:400px;
+$videoHeight:300px;
+
+body{
+	background:url("images/bg1.gif");
+}
+
+.form-signin{
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	#userMail.ng-invalid{
+		border:solid 1px red;
+	}
+}
+
+.video-container{
+	position: relative;
+	background-color: green;
+	width: $videoWidth;
+	height: $videoHeight;
+	video{
+		width: $videoWidth;
+		height: $videoHeight; 
+	}
+	.remote-video-container{
+		background-color: gray;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		video{
+			width: $videoWidth/4;
+			height: $videoHeight/4;
+		}
+	}
+}
