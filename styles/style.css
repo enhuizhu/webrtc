@@ -4,6 +4,9 @@
 body {
   background: url("images/bg1.gif"); }
 
+.red {
+  color: red; }
+
 .form-signin {
   width: 300px;
   margin-left: auto;
@@ -28,3 +31,22 @@ body {
     .video-container .remote-video-container video {
       width: 100px;
       height: 75px; }
+
+/**
+* style for the right side bar
+**/
+.box {
+  padding: 10px;
+  border: solid 1px gray;
+  margin-top: 10px; }
+  .box ul {
+    list-style: none;
+    margin-left: -40px; }
+
+.user-list {
+  height: 400px; }
+
+.message-board {
+  height: 200px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -4,10 +4,16 @@ angular.module("webrtcApp").classy.controller({
  
  name:"mainCtrl",
  
- inject:["$scope"],
+ inject:["$scope","socket","notification","$rootScope","$timeout"],
  
  init:function(){
-    /**
+    var that = this;
+	/**
+	* init the socket
+	**/
+    this.socket.bootStrap();	
+	
+	/**
     * variable to track if user already logged in
     **/
 
@@ -16,9 +22,10 @@ angular.module("webrtcApp").classy.controller({
     /**
     * variable to track user's name
     **/ 
-    this.$.userMail = "klll";
+    this.$.userMail = null;
     this.$.userList = [];
-
+	this.$.msgs = [];
+	this._bindSocketEvents();
  },
 
  watch:{
@@ -31,10 +38,45 @@ angular.module("webrtcApp").classy.controller({
  login:function(){
      if(!this._isUserNameExist()){
      	console.log("the value of user mail is:",this.$.userMail);
-     	alert("try to connect to node server!"+this.$.userMail);
-     }else{
+     	//alert("try to connect to node server!"+this.$.userMail);
+        this.socket.socket.emit("join",{"user":this.$.userMail})
+	    this.$.isLoggedIn = true;
+	 }else{
      	alert(this.$.userMail+" already logged in!");
      }
+ },
+ /**
+ * function to bind all the socket events
+ **/
+ _bindSocketEvents:function(){
+   this.notification.sub("user.join",this._userJoin.bind(this));
+   this.notification.sub("user.alreadyJoin",this._userAlreadyJoin.bind(this));   
+   this.notification.sub("user.leave",this._userLeave.bind(this));
+ },
+ 
+ _userJoin:function(event,data){
+   console.log("user join",data);
+   var that = this;
+   this.$.$apply(function(){
+         that.$.userList = data.userList;
+         that.$.msgs.unshift(data.newUser+" join");
+   });
+ },
+ 
+ _userAlreadyJoin:function(event,data){
+    var that = this;
+	alert(data.msg);
+	this.$.$apply(function(){
+	    that.$.isLoggedIn = false;
+	});
+ },
+ 
+ _userLeave:function(event,data){
+     var that = this;
+	 this.$.$apply(function(){
+	    that.$.userList = data.userList;
+		that.$.msgs.unshift(data.leaveUser+ " 	leave");
+	 });
  },
  
  /**
@@ -52,6 +94,4 @@ angular.module("webrtcApp").classy.controller({
    }
    return false;
  }
-
- 
 });

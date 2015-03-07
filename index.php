@@ -16,11 +16,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="styles/style.css" type="text/css"/>
    </head>
-   <body ng-app="webrtcApp">
-    
-    <div class="container" ng-controller="mainCtrl">
+   <body ng-app="webrtcApp" ng-controller="mainCtrl">
+    <div class="container">
       
-      <div class="row" ng-if="isLoggedIn">
+      <div class="row" ng-show="isLoggedIn">
           <div class="col-xs-9">
                
                <div class="video-container">
@@ -31,17 +30,32 @@
                </div>
           </div>
           <div class="col-xs-3">
-               the list of the users
-          </div>
+               <div class="user-list box">		   
+				   <ul>
+				      <li ng-repeat="user in userList" ng-class="{red:user==userMail}">
+					  {{user}}
+					  </li>
+				   </ul>
+			   </div>
+			   
+			   <div class="message-board box">
+					<ul>
+					   <li ng-repeat="msg in msgs">
+					   {{msg}}
+					   </li>
+					</ul>
+			   </div>		  
+		  </div>
       </div>
 
-      <div class="row" ng-if="!isLoggedIn">
+      <div class="row" ng-show="!isLoggedIn">
         <form class="form-signin" ng-submit="login()">
         <h2 class="form-signin-heading">Please sign in</h2>
         <p>&nbsp;</p>
         <label class="sr-only">Email address:</label>
-        <input class="form-control" ng-pattern="/^.+@.+\..+$/" ng-model="$parent.userMail" id="userMail">
-        <p>&nbsp;</p>
+        <input class="form-control" ng-pattern="/^.+@.+\..+$/" ng-model="userMail" id="userMail">
+        <p>{{userMail}}</p>
+		<p>&nbsp;</p>
         
         <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
         <input type="submit" value="Sign in" class="btn btn-lg btn-primary btn-block" type="submit"/>
@@ -49,8 +63,8 @@
       </div>
     
 
-    </div>
-
+    
+   </div>
 
      
      <!-- include all the vendors' libraries -->
@@ -64,14 +78,15 @@
      </script> 
      <!-- include socket io library -->
      <script type="text/javascript" src="<?php echo baseUrl("socket.io/socket.io.js",SOCKET_PORT)?>"></script>
-     <script type="text/javascript" src="scripts/socket.js"></script>
      <script language="JavaScript" src="scripts/webrtc.js"></script>
    
      <!-- include angular module file -->
      <script type="text/javascript" src="scripts/app.js"></script>
      <!-- include all the controllers -->
      <script type="text/javascript" src="scripts/controllers/main.js"></script>
-
+     <!-- include all the services -->
+	 <script type="text/javascript" src="scripts/services/socket.js"></script>
+	 <script type="text/javascript" src="scripts/services/notification.js"></script>
 
    </body>
 </html>

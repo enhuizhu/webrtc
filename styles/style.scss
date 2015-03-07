@@ -3,9 +3,15 @@
 **/
 $videoWidth:400px;
 $videoHeight:300px;
+$totalHeight:600px;
+$userListHeight:400px;
 
 body{
 	background:url("images/bg1.gif");
+}
+
+.red{
+  color:red;
 }
 
 .form-signin{
@@ -38,3 +44,26 @@ body{
 		}
 	}
 }
+
+/**
+* style for the right side bar
+**/
+.box{
+  padding:10px;
+  border:solid 1px gray;
+  margin-top:10px;
+  ul{
+    list-style:none;
+	margin-left:-40px;
+  }
+}
+.user-list{
+  height:$userListHeight;
+}
+
+.message-board{
+  height:$totalHeight - $userListHeight;
+}
+
+
+
