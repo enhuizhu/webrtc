@@ -1,3 +1,3 @@
 "use strict";
 
-angular.module("webrtcApp",["classy"]);
+angular.module("webrtcApp",["classy","ui.bootstrap"]);
