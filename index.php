@@ -23,23 +23,42 @@
                
                <div class="video-container">
                     <video id="localVideo" controls autoplay></video>
-                    <div class="remote-video-container">
+                    <!-- <div class="remote-video-container">
                         <video id="remoteVideo" controls autoplay></video>      
-                    </div>   
+                    </div>    -->
+               </div>
+               <p>&nbsp;</p>
+               <div class="video-container">
+               	    <video id="remoteVideo" controls autoplay></video>
                </div>
           </div>
           <div class="col-xs-3">
+               
+
                <div class="user-list box">		   
 				   <ul>
-				      <li ng-repeat="user in userList" ng-class="{red:user==userMail}">
-					  {{user}}
-					  </li>
+				      <li ng-repeat="user in userList">
+                      
+                       <chat-user user="user" is-current-user="user==userMail" current-user="userMail"></chat-user>
+
+                        <!--  <div class="user-pannel">
+                              <div class="user-profile pull-left"> 
+                                  <img src="images/userProfile/user1.jpg" class="img-circle"/>
+                                  <label ng-class="{red:user==userMail}"> {{user}}  </label>
+                               </div>
+                               <div class="tool pull-left">
+                                   <span class="glyphicon glyphicon-facetime-video"></span>
+                                   <span class="glyphicon glyphicon-off"></span>
+                               </div>
+                               <div class="clearfix"></div>
+                         </div> -->
+				      </li>
 				   </ul>
 			   </div>
 			   
 			   <div class="message-board box">
 					<ul>
-					   <li ng-repeat="msg in msgs">
+					   <li ng-repeat="msg in msgs track by $index">
 					   {{msg}}
 					   </li>
 					</ul>
@@ -69,7 +88,7 @@
      <!-- include all the vendors' libraries -->
      <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
      <script type="text/javascript" src="bower_components/angular-classy/angular-classy.min.js"></script>
-     <script type="text/javascript" src="bower_components/angular-classy/angular-bootstrap.min.js"></script>
+     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>	 
      <script type="text/javascript">
       var socket_url = "<?php echo baseUrl("",SOCKET_PORT)?>";
@@ -85,6 +104,8 @@
      <!-- include all the services -->
 	 <script type="text/javascript" src="scripts/services/socket.js"></script>
 	 <script type="text/javascript" src="scripts/services/notification.js"></script>
-
+	 <script type="text/javascript" src="scripts/services/webrtc.js"></script>
+     <!-- include all the diretives -->
+     <script type="text/javascript" src="scripts/directives/chatUser.js"></script>
    </body>
 </html>

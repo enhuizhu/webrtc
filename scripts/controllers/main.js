@@ -4,7 +4,7 @@ angular.module("webrtcApp").classy.controller({
  
  name:"mainCtrl",
  
- inject:["$scope","socket","notification","$rootScope","$timeout"],
+ inject:["$scope","socket","notification","$rootScope","$timeout","webrtc"],
  
  init:function(){
     var that = this;

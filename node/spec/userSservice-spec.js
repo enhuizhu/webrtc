@@ -26,5 +26,15 @@ describe("test user service",function(){
 	  expect(userServcie.list.length).toBe(0);
    });
    
+   it("should get right socket base on user name",function(){
+       userServcie.emptyUserList();
+       userServcie.addUser("test1",{user:"test1"});
+       userServcie.addUser("test2",{user:"test2"});
+       expect(userServcie.getSocketBaseOnUser("test1").user).toBe("test1");
+       expect(userServcie.getSocketBaseOnUser("test2").user).toBe("test2");
+
+
+
+   });
    
 })

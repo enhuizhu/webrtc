@@ -1,0 +1,11 @@
+<div class="user-pannel">
+  <div class="user-profile pull-left"> 
+      <img src="images/userProfile/user1.jpg" class="img-circle"/>
+      <label ng-class="{red:isCurrentUser}"> {{user}}  </label>
+   </div>
+   <div class="tool pull-left">
+       <span class="glyphicon glyphicon-facetime-video" ng-click="call()"></span>
+       <span class="glyphicon glyphicon-off" ng-click="handUp()"></span>
+   </div>
+   <div class="clearfix"></div>
+</div>

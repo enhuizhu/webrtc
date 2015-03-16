@@ -5,6 +5,7 @@ $videoWidth:400px;
 $videoHeight:300px;
 $totalHeight:600px;
 $userListHeight:400px;
+$primaryColor: #006dcc;
 
 body{
 	background:url("images/bg1.gif");
@@ -59,10 +60,49 @@ body{
 }
 .user-list{
   height:$userListHeight;
+  overflow: auto;	
 }
 
 .message-board{
   height:$totalHeight - $userListHeight;
+}
+
+/**
+* css for user profile
+**/
+
+.user-pannel{
+	$imgWidth:35px;
+	position: relative;
+	min-width: 200px;
+    margin-bottom: 11px;
+    .user-profile{
+    	img{
+    		width: $imgWidth;
+    		height: $imgWidth;
+    		margin-right: 5px;
+    	}
+    }
+    .tool{
+    	display:none;
+    	font-size: 21px;
+		top: 4px;
+		position: absolute;
+		right: 23px;
+    	& > span{
+    		margin-right: 15px;
+    	    cursor:pointer;
+    	    &.active,&:hover{
+    	    	color:$primaryColor;
+    	    }
+    	}
+    }
+    &:hover{
+       .tool{
+       	  display: block;
+       }
+    };
+ 
 }
 
 

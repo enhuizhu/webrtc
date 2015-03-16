@@ -44,9 +44,33 @@ body {
     margin-left: -40px; }
 
 .user-list {
-  height: 400px; }
+  height: 400px;
+  overflow: auto; }
 
 .message-board {
   height: 200px; }
 
-/*# sourceMappingURL=style.css.map */
+/**
+* css for user profile
+**/
+.user-pannel {
+  position: relative;
+  min-width: 200px;
+  margin-bottom: 11px; }
+  .user-pannel .user-profile img {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px; }
+  .user-pannel .tool {
+    display: none;
+    font-size: 21px;
+    top: 4px;
+    position: absolute;
+    right: 23px; }
+    .user-pannel .tool > span {
+      margin-right: 15px;
+      cursor: pointer; }
+      .user-pannel .tool > span.active, .user-pannel .tool > span:hover {
+        color: #006dcc; }
+  .user-pannel:hover .tool {
+    display: block; }
