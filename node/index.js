@@ -1,7 +1,7 @@
 /**
 * the entry file for the node backend
 **/
-var port = 8080;
+var port = 7070;
 var https = require("https");
 var fs = require("fs");
 var config = require("./config");

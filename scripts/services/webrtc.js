@@ -127,7 +127,7 @@ angular.module("webrtcApp").service("webrtc",function(notification,$timeout){
    	   localPeer = new peerConnection(pcConfig);             
    	   localPeer.onicecandidate = getLocalIceCandidate;
    	   localPeer.addStream(mediaStream);
-   	   localPeer.createOffer(getLocalDescription);
+   	   localPeer.createOffer(getLocalDescription, function(){console.error("createOffer fail", arguments)});
        localPeer.type=type=="answer"?"answer":"call";
    };
 
