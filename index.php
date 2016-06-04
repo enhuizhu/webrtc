@@ -89,12 +89,12 @@
      <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
      <script type="text/javascript" src="bower_components/angular-classy/angular-classy.min.js"></script>
      <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>	 
+     <script type="text/javascript" src="bower_components/socket.io-client/socket.io.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>	 
      <script type="text/javascript">
       var socket_url = "<?php echo baseUrl("",SOCKET_PORT)?>";
      </script> 
      <!-- include socket io library -->
-     <script type="text/javascript" src="<?php echo baseUrl("socket.io/socket.io.js",SOCKET_PORT)?>"></script>
      <script language="JavaScript" src="scripts/webrtc.js"></script>
    
      <!-- include angular module file -->
