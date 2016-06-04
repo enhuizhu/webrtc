@@ -2,8 +2,16 @@
 * the entry file for the node backend
 **/
 var port = 8080;
-var io = require("socket.io").listen(port);
+var https = require("https");
+var fs = require("fs");
+var config = require("./config");
 var userService = require("./userService");
+var options = {
+    key: fs.readFileSync(config.key),
+    cert: fs.readFileSync(config.cert)
+};
+var server = https.createServer(options).listen(port);
+var io = require("socket.io").listen(server);
 
 io.sockets.on("connection",function(socket){
     console.log("new client connected!");
