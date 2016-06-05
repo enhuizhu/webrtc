@@ -1,0 +1,29 @@
+{
+  "name": "webrtc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rocabee-david/webrtc.git"
+  },
+  "author": "enhuizhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rocabee-david/webrtc/issues"
+  },
+  "homepage": "https://github.com/rocabee-david/webrtc",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.7"
+  }
+}

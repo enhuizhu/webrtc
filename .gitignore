@@ -5,3 +5,4 @@ node/config.js
 port.json
 node/node_modules
 vendor/
+node_modules/

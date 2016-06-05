@@ -12,7 +12,11 @@
 
 ###4. Running unit test for node backend###
 
-```npm test```
+```
+cd node
+npm test
+
+```
 
 ###5. Generate ssl certificates.###
 
@@ -28,4 +32,18 @@ port number configuration is inside port.json file.
 }
 ```
 php and node will read port value from this file.
+
+###7. Run unit test for angular frontend code.###
+
+you need make sure you already installed all the bower componnents.
+
+```bower install```
+
+you also need to install the test environments.
+
+```npm install```
+
+run the following code to run the test.
+
+```karma start```
 
