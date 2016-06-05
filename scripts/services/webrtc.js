@@ -7,7 +7,7 @@
 angular.module("webrtcApp").service("webrtc",function(notification,$timeout){
     var pcConfig = {"iceServers": [{"url": "stun:stun.l.google.com:19302"}]};
     var that = this;
-    var peerConnection = webkitRTCPeerConnection || mozRTCPeerConnection;
+    var peerConnection = window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
     
     navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
