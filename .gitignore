@@ -1,5 +1,6 @@
 bower_components
 **/.DS_Store
+**/.sass-cache
 config.php
 node/config.js
 port.json
