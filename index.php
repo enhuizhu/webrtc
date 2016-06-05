@@ -22,7 +22,7 @@
           <div class="col-xs-9">
                
                <div class="video-container">
-                    <video id="localVideo" controls autoplay></video>
+                    <video id="localVideo" controls autoplay muted></video>
                     <!-- <div class="remote-video-container">
                         <video id="remoteVideo" controls autoplay></video>      
                     </div>    -->

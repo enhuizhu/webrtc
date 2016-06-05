@@ -119,8 +119,8 @@ angular.module("webrtcApp").service("webrtc",function(notification,$timeout){
             that.setUpLocalPeer(mediaStream,type);
             localVideo.src = URL.createObjectURL(mediaStream);
         },function(error){
-		    console.log("there is error happen when connecting to media stream!",error);
-		  });
+            alert("error:" + error);
+	    });
     };
  
     this.setUpLocalPeer = function(mediaStream,type){
@@ -145,15 +145,20 @@ angular.module("webrtcApp").service("webrtc",function(notification,$timeout){
    }
    
    this.setUpRemotePeer = function(type){
-   	   remotePeer = new peerConnection(pcConfig);             
+   	   var that = this;
+       remotePeer = new peerConnection(pcConfig);             
    	   remotePeer.onicecandidate = getRemoteIceCandidate;
    	   remotePeer.type = type;
        remotePeer.onaddstream = function(e){
    	   	  console.log(" ---- remote video get stream!  ----");
-   	   	  remoteVideo.src = URL.createObjectURL(e.stream);
+   	   	  //alert("remote setup!");
+          remoteVideo.src = URL.createObjectURL(e.stream);
    	   }
-
-       this.startLocalCamera("answer");
+       
+       if (!localPeer) {
+           that.startLocalCamera("answer");
+       }
+       
        this.setupResponseUserData();
 
        $timeout(function(){
