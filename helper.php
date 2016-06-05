@@ -14,3 +14,11 @@ if (!function_exists("baseUrl")) {
 	}
 }
 
+
+if (!function_exists("getPort")) {
+	function getPort() {
+		$content = file_get_contents("port.json");
+		return json_decode($content);
+	}
+}
+

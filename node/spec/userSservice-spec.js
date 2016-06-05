@@ -2,7 +2,7 @@
 * unit test for user service
 **/
 
-var userServcie = require("../userService");
+var userServcie = require("../services/userService");
 
 describe("test user service",function(){
    it("it should add user to the list",function(){
@@ -32,9 +32,6 @@ describe("test user service",function(){
        userServcie.addUser("test2",{user:"test2"});
        expect(userServcie.getSocketBaseOnUser("test1").user).toBe("test1");
        expect(userServcie.getSocketBaseOnUser("test2").user).toBe("test2");
-
-
-
    });
    
 })

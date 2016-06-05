@@ -2,3 +2,6 @@ bower_components
 **/.DS_Store
 config.php
 node/config.js
+port.json
+node/node_modules
+vendor/

@@ -1,11 +1,11 @@
 /**
 * the entry file for the node backend
 **/
-var port = 7070;
+var port = require("./helpers/ports").socket.port;
 var https = require("https");
 var fs = require("fs");
 var config = require("./config");
-var userService = require("./userService");
+var userService = require("./services/userService");
 var options = {
     key: fs.readFileSync(config.key),
     cert: fs.readFileSync(config.cert)
@@ -69,6 +69,4 @@ io.sockets.on("connection",function(socket){
     	 var localSocket = userService.getSocketBaseOnUser(data.usersData.from);
          localSocket.emit("get.answer.description",data);
     });
-   
- 
 });
